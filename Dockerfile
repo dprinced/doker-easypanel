@@ -1,9 +1,12 @@
-FROM ubuntu:trusty
+FROM centos:6.6
 MAINTAINER TenxCloud <dev@tenxcloud.com>
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
+yum -y install unzip wget && \
+wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
+sh ep.sh
   apt-get -y install supervisor apache2 libapache2-mod-php5 mysql-server php5-mysql php5-curl php5-memcache php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-gd pwgen php-apc php5-mcrypt unzip wget && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
@@ -57,5 +60,5 @@ ENV AUTHORIZED_KEYS **None**
 # Add volumes for MySQL
 VOLUME  ["/etc/mysql", "/var/lib/mysql", "/app"]
 
-EXPOSE 80 3306 22 8888
+EXPOSE 80 3306 22 3311 3312 3313
 CMD ["/run.sh"]
