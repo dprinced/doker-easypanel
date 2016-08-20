@@ -3,12 +3,9 @@ MAINTAINER TenxCloud <dev@tenxcloud.com>
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-yum -y install unzip wget && \
+RUN yum -y install unzip wget && \
 wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
 sh ep.sh
-  apt-get -y install supervisor apache2 libapache2-mod-php5 mysql-server php5-mysql php5-curl php5-memcache php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-gd pwgen php-apc php5-mcrypt unzip wget && \
-  echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
@@ -37,19 +34,13 @@ ENV PHP_UPLOAD_MAX_FILESIZE 10G
 ENV PHP_POST_MAX_SIZE 10G
 
 # Install packages
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server pwgen
+RUN yum update && DEBIAN_FRONTEND=noninteractive yum -y install openssh-server pwgen
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 ADD set_root_pw.sh /set_root_pw.sh
 
 # RUN git clone https://github.com/fermayo/hello-world-lamp.git /app
-RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-
-COPY my2.cnf /etc/mysql/my.cnf
-COPY mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
-
-
-RUN chmod 755 /*.sh
+RUN mkdir -p /app
 
 # Exposed ENV
 ENV MYSQL_USER admin
@@ -61,4 +52,3 @@ ENV AUTHORIZED_KEYS **None**
 VOLUME  ["/etc/mysql", "/var/lib/mysql", "/app"]
 
 EXPOSE 80 3306 22 3311 3312 3313
-CMD ["/run.sh"]
