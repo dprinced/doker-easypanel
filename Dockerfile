@@ -10,4 +10,4 @@ sh ep.sh
 # Add volumes for MySQL
 VOLUME  ["/var/lib/mysql", "/home"]
 
-EXPOSE 80 3306 22 21 3311 3312 3313
+EXPOSE 80 3306 22 3311 3312 3313
