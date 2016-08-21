@@ -6,6 +6,6 @@ RUN yum -y install tar unzip wget;wget http://download.kanglesoft.com/easypanel/
 
 # Exposed ENV
 # Add volumes for MySQL
-VOLUME  ["/etc/mysql", "/var/lib/mysql", "/home"]
+VOLUME  ["/var/lib/mysql", "/home"]
 
 EXPOSE 80 3306 22 21 3311 3312 3313
