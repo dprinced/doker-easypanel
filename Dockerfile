@@ -11,6 +11,7 @@ sh ep.sh
 # Install packages
 # RUN git clone https://github.com/fermayo/hello-world-lamp.git /app
 RUN mkdir -p /home
+RUN chown -R  apache.apache /home
 
 # Exposed ENV
 ENV ROOT_PASS **Random**
