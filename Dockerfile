@@ -2,7 +2,6 @@ FROM centos:6.6
 MAINTAINER TenxCloud <dev@tenxcloud.com>
 
 # Install packages
-ENV DEBIAN_FRONTEND noninteractive
 RUN yum -y install tar unzip wget;wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh;sh ep.sh
 
 # Exposed ENV
