@@ -2,8 +2,7 @@ FROM centos:6.6
 MAINTAINER TenxCloud <dev@tenxcloud.com>
 
 # Install packages
-RUN  yum update && \
-yum -y install tar unzip wget && \
+RUN  yum -y install tar unzip wget && \
 wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
 sh ep.sh
 
