@@ -7,7 +7,10 @@ wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
 sh ep.sh
 
 # Exposed ENV
+# Exposed ENV
+ENV ENV ROOT_PASS **Random**
 # Add volumes for MySQL
 VOLUME  ["/var/lib/mysql", "/home"]
 
 EXPOSE 80 3306 22 3311 3312 3313
+CMD echo hello world
