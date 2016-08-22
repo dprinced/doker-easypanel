@@ -8,7 +8,7 @@ sh ep.sh
 
 # Exposed ENV
 # Exposed ENV
-ENV ENV ROOT_PASS **Random**
+ENV ROOT_PASS **Random**
 # Add volumes for MySQL
 VOLUME  ["/var/lib/mysql", "/home"]
 
