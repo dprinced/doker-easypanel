@@ -7,6 +7,10 @@ wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
 sh ep.sh
 
 # Exposed ENV
+ADD run.sh /run.sh
+RUN chmod 755 /*.sh
+# Remove pre-installed database
+RUN rm -rf /var/lib/mysql/*
 # Exposed ENV
 ENV ROOT_PASS **Random**
 # Add volumes for MySQL
