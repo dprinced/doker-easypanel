@@ -17,4 +17,5 @@ ENV ROOT_PASS **Random**
 VOLUME  ["/var/lib/mysql", "/home"]
 
 EXPOSE 80 3306 21 22 25 3311 3312 3313
-CMD echo hello world
+CMD /usr/sbin/sshd -D &
+exec supervisord -n
