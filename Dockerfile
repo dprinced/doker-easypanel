@@ -6,9 +6,6 @@ RUN  yum -y install wget unzip zip bzip2 bzip2-devel tar && \
 wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
 sh ep.sh
 
-# Exposed ENV
-ADD run.sh /run.sh
-RUN chmod 755 /*.sh
 # Remove pre-installed database
 RUN rm -rf /var/lib/mysql/*
 # Exposed ENV
