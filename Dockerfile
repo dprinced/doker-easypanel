@@ -1,4 +1,4 @@
-FROM centos:6.6
+FROM index.tenxcloud.com/tenxcloud/centos:6.6
 MAINTAINER TenxCloud <dev@tenxcloud.com>
 
 # Install packages
