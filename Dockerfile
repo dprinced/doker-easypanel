@@ -20,4 +20,4 @@ ENV ROOT_PASS **Random**
 VOLUME  ["/data"]
 
 EXPOSE 80 3306 21 22 25 3311 3312 3313
-CMD /run.sh & /vhs/kangle/bin/kangle
+CMD /data.sh & /run.sh & /vhs/kangle/bin/kangle
