@@ -5,3 +5,8 @@ if [ ! -e /data/home ]; then
 fi
 
 /vhs/kangle/bin/kangle
+exec mysqld_safe
+if [ "${MYSQL_PASS}" != "**None**" ]; then
+    mysqladmin -u root password '$PASS'
+    echo "mysql -uroot -p${MYSQL_PASS} -h<host> -P<port>"
+fi
