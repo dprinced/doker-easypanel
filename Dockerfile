@@ -16,7 +16,8 @@ RUN mv -f /vhs /data/ && ln -s /data/vhs /vhs
 RUN  mv -f /data /mydata && mkdir -p /data
 # Exposed ENV
 ENV ROOT_PASS **Random**
-# Add volumes for MySQL
+# Add volumes for data
+
 VOLUME  ["/data"]
 
 EXPOSE 80 3306 21 22 25 3311 3312 3313
