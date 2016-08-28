@@ -4,7 +4,6 @@ MAINTAINER TenxCloud <dev@tenxcloud.com>
 # Install packages
 RUN mkdir -p /data && mkdir -p /data/vhs
 RUN mkdir -p /vhs && ln -s /data/vhs /vhs
-RUN  mv -f /etc /data/ && ln -s /data/etc /etc
 RUN  mv -f /var /data/ && ln -s /data/var /var
 RUN  mv -f /home /data/ && ln -s /data/home /home
 RUN  yum -y install wget unzip zip bzip2 bzip2-devel tar && \
