@@ -13,7 +13,7 @@ sh ep.sh
 ADD data.sh /data.sh
 RUN chmod 755 /*.sh
 # Remove pre-installed database
-RUN  mv -f data mydata && mkdir -p /data
+RUN  mv -f /data /mydata && mkdir -p /data
 # Exposed ENV
 ENV ROOT_PASS **Random**
 # Add volumes for MySQL
