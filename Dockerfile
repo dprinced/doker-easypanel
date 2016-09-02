@@ -7,7 +7,10 @@ RUN  mv -f /var /data/ && ln -s /data/var /var
 RUN  mv -f /home /data/ && ln -s /data/home /home
 RUN  yum -y install wget unzip zip bzip2 bzip2-devel tar && \
 wget http://download.kanglesoft.com/easypanel/ep.sh -O ep.sh && \
-sh ep.sh
+sh ep.sh && \
+wget http://download.kanglesoft.com/misc/php-5.2.17/php5217.sh -O php5217.sh && \
+sh php5217.sh
+
 ADD data.sh /data.sh
 RUN chmod 755 /*.sh
 # Remove pre-installed database
@@ -22,4 +25,4 @@ ENV MYSQL_PASS **Random**
 VOLUME  ["/data"]
 
 EXPOSE 80 3306 21 22 25 3311 3312 3313
-CMD /data.sh && /run.sh
+CMD ["/data.sh"]
