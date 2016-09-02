@@ -1,9 +1,9 @@
 #!/bin/bash
 
+/run.sh
 if [ ! -e /data/home ]; then
     mv -f /mydata/* /data/
 fi
-
 /vhs/kangle/bin/kangle
 exec mysqld_safe
 if [ "${MYSQL_PASS}" != "**None**" ]; then
